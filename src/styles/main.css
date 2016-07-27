@@ -1,3 +1,78 @@
-h1{
-  color: red;
+h3 {
+  color: #000000;
 }
+div.contain {
+  margin-top: 20px;
+}
+.carousel {
+  margin: 0px 0;
+  width: 1440px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  background-color: #14C6FF;
+}
+.carousel li {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.image-responsive {
+  width: 100%;
+}
+.container-fluid {
+  background-color: #14C6FF;
+}
+.btn.btn-info.btn-lg {
+  margin-left: -3px;
+}
+div.col-md-6{
+  margin-top: 10px;
+}
+#next {
+  float: right;
+}
+#back {
+  float: left;
+  clear: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/** {
+  padding: 0;
+  margin: 0;
+}
+ul {}
+ul li {
+  float: left;
+  list-style: none;
+  position: relative;
+}
+ul li a.next {
+  position: absolute;
+  left: 200px;
+}
+ul li a.previous{
+  position: absolute;
+  left: 0px;
+}
+a.prev {
+  float: left;
+}
+ul li a.startover {
+  position: absolute;
+  left: 200px;
+}*/
