@@ -16,7 +16,7 @@ $(function() {
 
 });
 //Close doc ready
-//$("#warning").hide(); //hide warning div to begin with
+
 //Start Form Validation
 //Start Credit Validation
 $('form').on('submit', function(event){
@@ -126,7 +126,6 @@ $('form').on('submit', function(event){
   if (errorsPresent === false) { //show success message if no errors
     $("#success").append('<p>Your Order has Been Submitted for Proccessing</p>');
     $("#success").show().delay(5000).fadeOut();
-    // $("#success p").remove(); //clear success message for re-submit
   }
 
 
