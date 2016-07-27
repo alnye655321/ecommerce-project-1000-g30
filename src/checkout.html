@@ -5,7 +5,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-0UBL8wxZ28kqJ8w8N8RUV0odBG5w8D/Y+rb+o7hr2F3dS9twlAE8S7VUtVSRe5cc" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
-    <title>boilerplate</title>
+
+<!-- Start Credit Card Stripe JS  key=  pk_test_IDkwCdtBuXpEeMz1Nq5JOHe1   -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script> Stripe.setPublishableKey('pk_test_IDkwCdtBuXpEeMz1Nq5JOHe1'); </script>
+<!-- End Credit Card Stripe JS -->
+
+    <title>Checkout</title>
     <!--  !!!!!!!!! Remove style to main.css eventually !!!!!!!!!!!!! -->
     <style>
 .purchases {
@@ -186,8 +192,17 @@
   </div>
 </div>
 <br><br><br>
+
+<div class="alert alert-danger" id="warning">
+  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>
 <!-- close container -->
 </div>
+
+<script>
+var test = Stripe.card.validateCardNumber('4242424242424242');
+console.log(test);
+</script>
 
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts/checkout.js"></script>
