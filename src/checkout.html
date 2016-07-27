@@ -56,8 +56,9 @@
 
   </div>
 
-  <div class="container billing-form">
+  <div class="container">
     <div class="row">
+<!-- Shipping Form -->
       <div class="col-md-6">
         <h2>Shipping</h2>
         <form id="shippingForm">
@@ -105,7 +106,7 @@
         </form>
 
       </div>
-
+<!-- Billing Form -->
       <div class="col-md-6">
         <h2>Billing</h2>
         <form id="billingForm">
@@ -144,13 +145,37 @@
             <label for="zipBilling">Zip</label>
             <input type="number" class="form-control" id="zipBilling">
           </div>
-
         </form>
-
-
       </div>
   </div>
+
+<br><br>
+<!-- Credit Card Form -->
+<div class="row">
+  <div class="col-md-12">
+      <form class="form-inline" id="creditForm">
+
+        <div class="form-group">
+          <label for="creditNumber">Credit Card Number</label>
+          <input type="text" class="form-control" id="creditNumber">
+        </div>
+
+        <div class="form-group">
+          <label for="creditExpiration">Experation</label>
+          <input type="text" class="form-control" id="creditExpiration">
+        </div>
+
+        <div class="form-group">
+          <label for="creditCvc">CVC</label>
+          <input type="text" class="form-control" id="creditCvc">
+        </div>
+        <button type="submit" class="btn btn-default">Place Order</button>
+      </form>
   </div>
+</div>
+<br><br><br>
+<!-- close container -->
+</div>
 
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts/checkout.js"></script>
