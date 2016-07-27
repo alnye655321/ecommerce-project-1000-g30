@@ -179,7 +179,7 @@
         </div>
 
         <div class="form-group">
-          <label for="creditExpiration">Experation</label>
+          <label for="creditExpiration">Expiration</label>
           <input type="text" class="form-control" id="creditExpiration">
         </div>
 
@@ -191,18 +191,14 @@
       </form>
   </div>
 </div>
-<br><br><br>
+<br><br>
 
-<div class="alert alert-danger" id="warning">
-  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+<div class="alert alert-danger" id="warning" style="display:none">
+  <strong>Error!</strong>
 </div>
-<!-- close container -->
+<!-- close container  -->
 </div>
 
-<script>
-var test = Stripe.card.validateCardNumber('4242424242424242');
-console.log(test);
-</script>
 
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts/checkout.js"></script>

@@ -15,11 +15,29 @@ $(function() {
 
 });
 //Close doc ready
-
+//$("#warning").hide(); //hide warning div to begin with
 //Start Form Validation
 $('form').on('submit', function(event){
   event.preventDefault();
   console.log('hijacked');
+  var creditNumber = $('#creditNumber').val();
+  var creditExpiration = $('#creditExpiration').val();
+  var creditCvc = $('#creditCvc').val();
+
+  if (Stripe.card.validateCardNumber($('#creditNumber').val()) === false) {
+    $("#warning").append('<p>Not a Valid Credit Card Number</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (Stripe.card.validateExpiry($('#creditExpiration').val()) === false) {
+    $("#warning").append('<p>Not a Valid Credit Card Expiration</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (Stripe.card.validateCVC($('#creditCvc').val()) === false) {
+    $("#warning").append('<p>Not a Valid Credit Card CVC</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
 
 });
 //End Form Validation
