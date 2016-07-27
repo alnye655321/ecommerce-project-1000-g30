@@ -26,17 +26,22 @@ $('form').on('submit', function(event){
   var creditExpiration = $('#creditExpiration').val();
   var creditCvc = $('#creditCvc').val();
 
+  var errorsPresent = false; // if any error is triggered record, if not display success message at bottom
+
   if (Stripe.card.validateCardNumber($('#creditNumber').val()) === false) {
+    errorsPresent = true;
     $("#warning").append('<p>Not a Valid Credit Card Number</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (Stripe.card.validateExpiry($('#creditExpiration').val()) === false) {
+    errorsPresent = true;
     $("#warning").append('<p>Not a Valid Credit Card Expiration</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (Stripe.card.validateCVC($('#creditCvc').val()) === false) {
+    errorsPresent = true;
     $("#warning").append('<p>Not a Valid Credit Card CVC</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
@@ -44,31 +49,37 @@ $('form').on('submit', function(event){
 
 //Start Regular Form Shipping Validation
   if (($('#firstNameShipping').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a First Name for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#lastNameShipping').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a Last Name for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#address1Shipping').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include an Address Line 1 for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#cityShipping').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a City for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#stateShipping').val()) == "NULL") {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a State for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#zipShipping').val()).length < 5) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a Zip for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
@@ -76,35 +87,55 @@ $('form').on('submit', function(event){
 
 //Start Regular Form Billing Validation
   if (($('#firstNameBilling').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a First Name for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#lastNameBilling').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a Last Name for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#address1Billing').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include an Address Line 1 for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#cityBilling').val()).length < 1) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a City for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#stateBilling').val()) == "NULL") {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a State for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 
   if (($('#zipBilling').val()).length < 5) {
+    errorsPresent = true;
     $("#warning").append('<p>Please Include a Zip for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
 //End Regular Form Billing Validation
+
+  if (errorsPresent === false) { //show success message if no errors
+    $("#success").append('<p>Your Order has Been Submitted for Proccessing</p>');
+    $("#success").show().delay(5000).fadeOut();
+    // $("#success p").remove(); //clear success message for re-submit
+  }
+
+
+  setTimeout( //wait 10 seconds for success/error message generation, then clear out messages for new submit
+  function()
+  {
+    $("#warning p").remove(); // clear warning messages for re-submit
+    $("#success p").remove(); //clear success message for re-submit
+  }, 10000); // Ten second timeout setting, maybe could be less? Or a complicated promise...
 
 });
 //End Form Validation
