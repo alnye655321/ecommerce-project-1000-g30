@@ -1,0 +1,45 @@
+/*===========================================*/
+/*IDs*/
+#googleMap img {
+max-width: none;
+max-height: none;
+}
+
+/*===========================================*/
+/*Classes*/
+/*.block {
+height: -webkit-calc(100vh);
+height: -moz-calc(100vh);
+height: calc(100vh);
+}*/
+
+.border-right{
+  border-right: 1px solid black;
+}
+
+.products{
+  width: 20%;
+  float: left;
+  padding: 10px;
+  margin: 22px;
+  border: solid 1px gray;
+  height: 400px;
+}
+
+.fullHeight{
+  height: 100%;
+}
+
+/*===========================================*/
+/*Elements*/
+.products img {
+    max-width: 100%;
+}
+
+.fullImage {
+    max-width: 30%;
+}
+
+.inline{
+  display: inline;
+}
