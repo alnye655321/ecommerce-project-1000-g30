@@ -37,5 +37,9 @@ height: calc(100vh);
 }
 
 .fullImage {
-    max-width: 100%;
+    max-width: 30%;
+}
+
+.inline{
+  display: inline;
 }
