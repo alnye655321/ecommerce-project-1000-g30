@@ -7,6 +7,10 @@ $(function() {
 
   fullProductList(productObj);//populate products;
 
+  $('#clear-selection').on('click', function() {
+    fullProductList(productObj);
+  });
+
   //grab on click from a size and return
   $('#sort-by-size li a').on('click', function(event){
     event.preventDefault();
