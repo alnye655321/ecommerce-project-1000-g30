@@ -1,6 +1,7 @@
 $(function() {
   'use strict';
   console.log('sanity check');
+  Stripe.setPublishableKey('pk_test_IDkwCdtBuXpEeMz1Nq5JOHe1');
 
   $( "#copy" ).click(function() { //copy shipping to billing
     $('#firstNameBilling').val($('#firstNameShipping').val());
@@ -17,6 +18,7 @@ $(function() {
 //Close doc ready
 //$("#warning").hide(); //hide warning div to begin with
 //Start Form Validation
+//Start Credit Validation
 $('form').on('submit', function(event){
   event.preventDefault();
   console.log('hijacked');
@@ -38,6 +40,71 @@ $('form').on('submit', function(event){
     $("#warning").append('<p>Not a Valid Credit Card CVC</p>');
     $("#warning").show().delay(5000).fadeOut();
   }
+//End Credit Validation
+
+//Start Regular Form Shipping Validation
+  if (($('#firstNameShipping').val()).length < 1) {
+    $("#warning").append('<p>Please Include a First Name for Shipping</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#lastNameShipping').val()).length < 1) {
+    $("#warning").append('<p>Please Include a Last Name for Shipping</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#address1Shipping').val()).length < 1) {
+    $("#warning").append('<p>Please Include an Address Line 1 for Shipping</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#cityShipping').val()).length < 1) {
+    $("#warning").append('<p>Please Include a City for Shipping</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#stateShipping').val()) == "NULL") {
+    $("#warning").append('<p>Please Include a State for Shipping</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#zipShipping').val()).length < 5) {
+    $("#warning").append('<p>Please Include a Zip for Shipping</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+//End Regular Form Shipping Validation
+
+//Start Regular Form Billing Validation
+  if (($('#firstNameBilling').val()).length < 1) {
+    $("#warning").append('<p>Please Include a First Name for Billing</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#lastNameBilling').val()).length < 1) {
+    $("#warning").append('<p>Please Include a Last Name for Billing</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#address1Billing').val()).length < 1) {
+    $("#warning").append('<p>Please Include an Address Line 1 for Billing</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#cityBilling').val()).length < 1) {
+    $("#warning").append('<p>Please Include a City for Billing</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#stateBilling').val()) == "NULL") {
+    $("#warning").append('<p>Please Include a State for Billing</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+
+  if (($('#zipBilling').val()).length < 5) {
+    $("#warning").append('<p>Please Include a Zip for Billing</p>');
+    $("#warning").show().delay(5000).fadeOut();
+  }
+//End Regular Form Billing Validation
 
 });
 //End Form Validation
