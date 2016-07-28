@@ -36,12 +36,15 @@ div.contain {
 .relative {
   position: relative;
 }
+.fa{
+ color: #e67e22 ;
+}
 #next {
   float: right;
   position: absolute; left: 95%; top: 50%;
 }
 #back {
-  float: left;  
+  float: left;
   position: absolute; right: 95%; top: 50%;
 }
 h2 {
