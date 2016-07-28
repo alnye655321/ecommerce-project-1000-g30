@@ -1,3 +1,6 @@
+html {
+  background-color: #14C6FF;
+}
 h3 {
   color: #000000;
 }
@@ -6,7 +9,7 @@ div.contain {
 }
 .carousel {
   margin: 0px 0;
-  width: 1440px;
+  width: 100%;
   height: 300px;
   position: relative;
   overflow: hidden;
@@ -31,17 +34,22 @@ div.contain {
 }
 div.col-md-6{
   margin-top: 10px;
+  margin-left: 15px;
+}
+.relative {
+  position: relative;
 }
 #next {
   float: right;
+  position: absolute; right: 95%; top: 50%;
 }
 #back {
   float: left;
-  clear: left;
+  position: absolute; left: 95%; top: 50%;
 }
-
-
-
+h2 {
+  text-align: center;
+}
 
 
 
