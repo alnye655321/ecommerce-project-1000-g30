@@ -7,6 +7,7 @@ $(function() {
   //create promise object for ajax call
   var productObj = ajaxCall(urlProduct);
 
+  //populate shopping cart
   productObj.then(function(results){
     var arr = [];
     for (var i = 0; i < 3; i++) {
@@ -14,12 +15,9 @@ $(function() {
       console.log(arr);
     }
       createShoppingList(arr);
-  })
+  });
 
-
-
-
-  //populate products;
+  //populate products
   fullProductList(productObj);
   $('#button').on('click',function(){
     $('#shoppin').show();
@@ -30,8 +28,9 @@ $(function() {
   });
 
   //grab on click from a size link and return only those items that equal that size category
-  $('#sort-by-size li a').on('click', function(event){
+  $('#sort-by-size div a').on('click', function(event){
     event.preventDefault();
+    console.log('yo');
     var key = parseInt($(this).attr('value'));
     clearOutputDiv();
     productObj.then(function(products){
@@ -43,7 +42,7 @@ $(function() {
   });
 
   // grab on click from a price link and return only those items that are within the twenty dollar range, or all those greater than 80.
-  $('#sort-by-price li a').on('click', function(event){
+  $('#sort-by-price div a').on('click', function(event){
     event.preventDefault();
     var key = parseFloat($(this).attr('value'));
     clearOutputDiv();

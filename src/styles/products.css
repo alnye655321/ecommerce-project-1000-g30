@@ -6,7 +6,8 @@ max-height: none;
 }
 
 #sidebar{
-  overflow: hidden; 
+  overflow: hidden;
+  visibility:
 }
 
 /*===========================================*/
@@ -23,7 +24,6 @@ max-height: none;
   padding: 10px;
   margin: 22px;
   border: solid 1px gray;
-  height: ;
 }
 
 .fullHeight{
