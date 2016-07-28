@@ -19,7 +19,10 @@ $(function() {
 
 //Start Form Validation
 //Start Credit Validation
+
 $('form').on('submit', function(event){
+  if ($('#lastNameShipping').val() !== 'Trump') {
+
   event.preventDefault();
   console.log('hijacked');
   var creditNumber = $('#creditNumber').val();
@@ -135,6 +138,13 @@ $('form').on('submit', function(event){
     $("#warning p").remove(); // clear warning messages for re-submit
     $("#success p").remove(); //clear success message for re-submit
   }, 10000); // Ten second timeout setting, maybe could be less? Or a complicated promise...
+}
+else { // hidden trump treasure below - src="assets/hidden/fileX"  to 176
+  event.preventDefault();
+  for (var i = 1; i < 176; i++) {
+    $("#trump").delay(10000).append('<img src="assets/hidden/file' + i + '.jpg" class="img-responsive">').fadeIn("fast");
+  }
+}//end hidden trump
 
 });
 //End Form Validation
