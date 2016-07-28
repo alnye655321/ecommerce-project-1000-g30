@@ -156,9 +156,11 @@ $('form').on('submit', function(event){
 }
 else { // hidden trump treasure below - src="assets/hidden/fileX"  to 176
   event.preventDefault();
-  for (var i = 1; i < 176; i++) {
-    $("#trump").delay(10000).append('<img src="assets/hidden/file' + i + '.jpg" class="img-responsive">').fadeIn("fast");
-  }
+
+  $("#trump").append('<div class="alert alert-success" id="success" style="margin-top:10px; font-size:2em;"><strong>Thank you Donald! All of our inventory has been added to your shopping cart, and your delivery is on the way!</strong></div>');
+  loopTimeout(1, 176, 500, function(i){
+    $("#trump").append('<img src="assets/hidden/file' + i + '.jpg" class="img-responsive">');
+});
 }//end hidden trump
 
 });
@@ -201,3 +203,24 @@ $("#zipShipping").focus(function() { //selecting zip, entering data, then leavin
 
 });
 //End Zipcode Autocomplete
+
+//Start Loop Timeout Function
+//will run a loop then delay after each iteration for var interval milliseconds
+ function loopTimeout(i, max, interval, func) {
+    if (i >= max) {
+        return;
+    }
+
+    // Call the function
+    func(i);
+
+    i++;
+
+    // "loop"
+    setTimeout(function() {
+        loopTimeout(i, max, interval, func);
+    }, interval);
+}
+
+
+//End Loop Timeout Function
