@@ -3,10 +3,14 @@ $(function() {
   console.log('sanity check');
 
   var urlProduct = 'http://galvanize-student-apis.herokuapp.com/gcommerce/products';
-  var productObj = ajaxCall(urlProduct); //create promise object for ajax call
 
-  fullProductList(productObj);//populate products;
+  //create promise object for ajax call
+  var productObj = ajaxCall(urlProduct);
 
+  //populate products;
+  fullProductList(productObj);
+
+  //adds all products back to page on click
   $('#clear-selection').on('click', function() {
     fullProductList(productObj);
   });
@@ -23,7 +27,8 @@ $(function() {
       createProductElement(sortedSize);
     });
   });
-  // grab on click from a price link and return only those items that are within the twenty dollar range
+
+  // grab on click from a price link and return only those items that are within the twenty dollar range, or all those greater than 80.
   $('#sort-by-price li a').on('click', function(event){
     event.preventDefault();
     var key = parseFloat($(this).attr('value'));
@@ -41,18 +46,32 @@ $(function() {
       createProductElement(sortedPrice);
     });
   });
+
+  // $('#product-display .row > div').on('hover', function(){
+  //   console.log('Hover');
+  //   //$('#products .purchase').attr('display', 'block');
+  // });
+
+
 });
 
 //get Ajax Object as a promise
 function ajaxCall(url){
   return Promise.resolve($.ajax(url));
 }
+
 //create a div element on page per object in array
 function createProductElement(productObjArr){
   productObjArr.forEach(function(value){
-    $('#product-display').append('<figure class="products float-left bg-info"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong> ' + randomStar() + '</div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p></figure>');
+    $('#product-display').append('<div class="products float-left bg-info"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong> ' + randomStar() + '</div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></div>');
   });
+  //wrap every increment of four product elements in a row Div
+  var $divs = $('#product-display > div');
+  for(var i = 0; i < $divs.length; i += 4) {
+  $divs.slice(i, i + 4).wrapAll("<div class='row relative'></div>");
+  }
 }
+
 //clear product display div
 function clearOutputDiv(){
   $('#product-display').empty();
@@ -65,14 +84,14 @@ function fullProductList(productObj){
   });
 }
 
-function randomStar(){
+//makes a randomly filled star bar from .5 to 5 stars.
+function randomStar() {
   var starNumber = Math.floor((Math.random() * 10) + 1)/2;
   var fullStarBar = [];
-  console.log(starNumber);
 
   for (var i = 0; i < 5; i++) {
     if (starNumber > 0.5) {
-       fullStarBar.push('<i class="fa fa-star" aria-hidden="true"></i>');
+      fullStarBar.push('<i class="fa fa-star" aria-hidden="true"></i>');
     }
     else if (starNumber === 0.5) {
       fullStarBar.push('<i class="fa fa-star-half-o" aria-hidden="true"></i>');
@@ -83,5 +102,4 @@ function randomStar(){
     starNumber--;
   }
     return fullStarBar.toString().replace(/,/g, '');
-
 }
