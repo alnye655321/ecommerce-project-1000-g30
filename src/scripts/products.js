@@ -7,9 +7,23 @@ $(function() {
   //create promise object for ajax call
   var productObj = ajaxCall(urlProduct);
 
+  productObj.then(function(results){
+    var arr = [];
+    for (var i = 0; i < 3; i++) {
+      arr.push(results[Math.floor(Math.random() * results.length)]);
+      console.log(arr);
+    }
+      createShoppingList(arr);
+  })
+
+
+
+
   //populate products;
   fullProductList(productObj);
-
+  $('#button').on('click',function(){
+    $('#shoppin').show();
+  });
   //adds all products back to page on click
   $('#clear-selection').on('click', function() {
     fullProductList(productObj);
@@ -102,4 +116,9 @@ function randomStar() {
     starNumber--;
   }
     return fullStarBar.toString().replace(/,/g, '');
+}
+function createShoppingList(productObjArr){
+  productObjArr.forEach(function(value){
+  $('#shoppingList').append('<li class="bg-info products-cart"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong></div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></li>');
+});
 }

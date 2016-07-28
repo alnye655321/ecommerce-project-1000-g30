@@ -159,7 +159,7 @@ else { // hidden trump treasure below - src="assets/hidden/fileX"  to 176
 
   $("#trump").append('<div class="alert alert-success" id="success" style="margin-top:10px; font-size:2em;"><strong>Thank you Donald! All of our inventory has been added to your shopping cart, and your delivery is on the way!</strong></div>');
   loopTimeout(1, 176, 500, function(i){
-    $("#trump").append('<img src="assets/hidden/file' + i + '.jpg" class="img-responsive">');
+    $("#trump").append('<img src="assets/hidden/file' + i + '.jpg" class="img-responsive trump">');
 });
 }//end hidden trump
 

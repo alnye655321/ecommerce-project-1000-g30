@@ -21,10 +21,16 @@
             <a href="products.html" class="btn btn-success btn-lg" role="button">Products</a>
             <a href="checkout.html" class="btn btn-info btn-lg" role="button">Checkout</a>
             <button class="btn btn-lg " type="button" id="button">Shopping Cart<i class="fa fa-shopping-cart"></i></button>
-
           </div>
       </div>
+      <div class="modal" id="shoppin" style="display:none">
+        <ul id="shoppingList">
+         </ul>
+         <br>
+         <input type="button" name="answer" value="Close" onclick="hideDiv()" />
+         </div>
     </nav>
+
     <header>
       <div class="relative">
         <ul class="carousel">
@@ -39,16 +45,102 @@
     <div class="container-fluid" id="product-display">
       <h2>Products</h2>
     </div>
-
-    <div class="modal" id="shoppin" style="display:none">
-      <ul id="shoppingList">
-       </ul>
-       <br>
-       <input type="button" name="answer" value="Close" onclick="hideDiv()" />
+       <div class="container-fluid" style="background-color:silver">
+           <div class="row">
+             <div class="col-md-12">
+               <h2 style="text-align:center">Signup Today!</h2>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi
+                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                   . Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non prds.</p>
+               <form class="form-inline">
+                 <div class="form-group">
+                   <label for="emailSignup">Email</label>
+                   <input type="email" class="form-control" id="emailSignup" placeholder="jane.doe@example.com">
+               </div>
+                 <button type="submit" class="btn btn-default">Signup</button>
+               </form>
+             </div>
+         </div>
+         <br><br>
        </div>
-
+       <div>
+         <footer class="bg-info">
+           <div class="row text-center img-responsive">
+             <div class="col-xs-3 footer">
+               <h2>Visit Us</h2>
+               <div id="googleMap" style="width:100%; height:260px;">
+               </div>
+             </div>
+             <div class="col-xs-3 footer">
+               <section>
+                 <h3>Section</h3>
+                 <div class="">
+                   <div class="row">
+                     <img src="assets/0.png" alt="trumpdo" class="fullImage"/>
+                     <h5 class="inline">First Item</h5>
+                   </div>
+                   <div class="row">
+                     <img src="assets/0.png" alt="trumpdo" class="fullImage"/>
+                     <h5 class="inline">Second Item</h5>
+                   </div>
+                   <div class="row">
+                     <img src="assets/0.png" alt="trumpdo" class="fullImage"/>
+                     <h5 class="inline">Third Item</h5>
+                   </div>
+                   <div class="row">
+                     <img src="assets/0.png" alt="trumpdo" class="fullImage"/>
+                     <h5 class="inline">Fourth Item</h5>
+                   </div>
+                 </div>
+               </section>
+             </div>
+             <div class="col-xs-3 footer">
+               <section>
+                 <h3>Section</h3>
+                 <div class="">
+                   <div class="row vertical-align">
+                     <h5><a href="*">First Item</a></h5>
+                   </div>
+                   <div class="row vertical-align">
+                     <h5><a href="*">Second Item</a></h5>
+                   </div>
+                   <div class="row vertical-align">
+                     <h5><a href="*">Third Item</a></h5>
+                   </div>
+                   <div class="row vertical-align">
+                     <h5><a href="*">Fourth Item</a></h5>
+                   </div>
+                 </div>
+               </section>
+             </div>
+             <div class="col-xs-3 footer">
+               <section>
+                 <h3>Section</h3>
+                 <div class="">
+                   <div class="row vertical-align">
+                     <h5><a href="*">First Item</a></h5>
+                   </div>
+                   <div class="row vertical-align">
+                     <h5><a href="*">Second Item</a></h5>
+                   </div>
+                   <div class="row vertical-align">
+                     <h5><a href="*">Third Item</a></h5>
+                   </div>
+                   <div class="row vertical-align">
+                     <h5><a href="*">Fourth Item</a></h5>
+                   </div>
+                 </div>
+               </section>
+             </div>
+           </div>
+         </footer>
+       </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/535058757b.js"></script>
+    <script type="text/javascript" src="scripts/footer.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDagH7GSeB1__MKMKRplABGGP7pFn2W2zY&callback=initMap"></script>
   </body>
 </html>
