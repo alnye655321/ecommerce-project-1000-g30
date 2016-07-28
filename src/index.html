@@ -5,6 +5,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-0UBL8wxZ28kqJ8w8N8RUV0odBG5w8D/Y+rb+o7hr2F3dS9twlAE8S7VUtVSRe5cc" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
+    <script>
+       function hideDiv() {
+          document.getElementById('shoppin').style.display = "none";
+    }
+    </script>
     <title>boilerplate</title>
   </head>
   <body>
@@ -15,6 +20,8 @@
             <a href="index.html" class="btn btn-primary btn-lg" role="button">Home</button>
             <a href="products.html" class="btn btn-success btn-lg" role="button">Products</a>
             <a href="checkout.html" class="btn btn-info btn-lg" role="button">Checkout</a>
+            <button class="btn btn-lg " type="button" id="button">Shopping Cart<i class="fa fa-shopping-cart"></i></button>
+
           </div>
       </div>
     </nav>
@@ -33,7 +40,15 @@
       <h2>Products</h2>
     </div>
 
+    <div class="modal" id="shoppin" style="display:none">
+      <ul id="shoppingList">
+       </ul>
+       <br>
+       <input type="button" name="answer" value="Close" onclick="hideDiv()" />
+       </div>
+
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/535058757b.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

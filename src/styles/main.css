@@ -50,37 +50,43 @@ div.col-md-6{
 h2 {
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-/** {
-  padding: 0;
-  margin: 0;
+.products img {
+    max-width: 100%;
+    border: 1px solid black;
 }
-ul {}
-ul li {
+.products {
+  width: 20%;
   float: left;
-  list-style: none;
-  position: relative;
+  padding: 10px;
+  margin: 6.2%;
+  border: solid 1px gray;
 }
-ul li a.next {
-  position: absolute;
-  left: 200px;
+.modal {
+    /* some styles to position the modal at the center of the page */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    margin-left: -300px;
+    margin-top: -300px;
+    background-color: #f1c40f;
+    text-align: center;
+    overflow: scroll;
+    /* needed styles for the overlay */
+    z-index: 10; /* keep on top of other elements on the page */
+    outline: 9999px solid rgba(0,0,0,0.5);
 }
-ul li a.previous{
-  position: absolute;
-  left: 0px;
+#button {
+  float: right;
 }
-a.prev {
-  float: left;
+.products-cart {
+  display: block;
+  padding: 10px;
+  margin: 6.2%;
+  border: solid 1px gray;
 }
-ul li a.startover {
-  position: absolute;
-  left: 200px;
-}*/
+.products-cart img {
+    max-width: 50%;
+    border: 1px solid black;
+}
