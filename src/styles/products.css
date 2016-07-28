@@ -17,6 +17,7 @@ height: calc(100vh);
   border-right: 1px solid black;
 }
 
+
 .products{
   width: 20%;
   float: left;
@@ -30,16 +31,33 @@ height: calc(100vh);
   height: 100%;
 }
 
-/*===========================================*/
-/*Elements*/
+.footer{
+  height: 363px;
+}
+
 .products img {
     max-width: 100%;
+    border: 1px solid black;
 }
 
 .fullImage {
-    max-width: 30%;
+    width: 25%;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    float: left;
+    margin-left: 25%;
 }
 
 .inline{
-  display: inline;
+  padding-left: 10px;
+  width: 50%;
+  float: left;
+  text-align: left;
 }
+
+.fa{
+  color: #e67e22;
+}
+
+/*===========================================*/
+/*Elements*/
