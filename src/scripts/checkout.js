@@ -205,7 +205,7 @@ $("#zipShipping").focus(function() { //selecting zip, entering data, then leavin
 //End Zipcode Autocomplete
 
 //Start Loop Timeout Function
-//will run a loop then delay after each iteration for var interval milliseconds
+//will run a loop then delay after each iteration for var interval milliseconds. All for Trump! Make America Great Again!
  function loopTimeout(i, max, interval, func) {
     if (i >= max) {
         return;
