@@ -30,6 +30,13 @@
   color:red;
 }
 
+.form-control {
+  border-style: solid;
+  border-width: 1px;
+  border-color: silver;
+
+}
+
 .img-responsive {
   display: block;
   height: 200px;
@@ -45,6 +52,17 @@
     <div class="container-fluid" id="trump"></div>
     <!-- Title container -->
     <div class="container">
+
+<!-- Start Success/Error Divs - shown on form submit -->
+      <div class="alert alert-danger" id="warning" style="display:none; margin-top:10px;">
+        <strong>Error!</strong>
+      </div>
+
+      <div class="alert alert-success" id="success" style="display:none; margin-top:10px;">
+        <strong>Success!</strong>
+      </div>
+<!-- End Success/Error Divs - shown on form submit -->
+
       <div class="row">
         <div class="col-md-12"><h1>Checkout</h2></div>
     </div>
@@ -204,13 +222,7 @@
 </div>
 <br><br>
 
-<div class="alert alert-danger" id="warning" style="display:none">
-  <strong>Error!</strong>
-</div>
 
-<div class="alert alert-success" id="success" style="display:none">
-  <strong>Success!</strong>
-</div>
 
 <!-- close container  -->
 </div>

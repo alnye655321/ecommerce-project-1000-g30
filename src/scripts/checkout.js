@@ -33,97 +33,112 @@ $('form').on('submit', function(event){
 
   if (Stripe.card.validateCardNumber($('#creditNumber').val()) === false) {
     errorsPresent = true;
+    $("#creditNumber").css("border-color", "red"); //error causes input field border to turn red
     $("#warning").append('<p>Not a Valid Credit Card Number</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#creditNumber").css("border-color", "silver");}  //if no error set border color to normal
 
   if (Stripe.card.validateExpiry($('#creditExpiration').val()) === false) {
     errorsPresent = true;
+    $("#creditExpiration").css("border-color", "red");
     $("#warning").append('<p>Not a Valid Credit Card Expiration</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#creditExpiration").css("border-color", "silver");}
 
   if (Stripe.card.validateCVC($('#creditCvc').val()) === false) {
     errorsPresent = true;
+    $("#creditCvc").css("border-color", "red");
     $("#warning").append('<p>Not a Valid Credit Card CVC</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#creditCvc").css("border-color", "silver");}
 //End Credit Validation
 
 //Start Regular Form Shipping Validation
   if (($('#firstNameShipping').val()).length < 1) {
+    $("#firstNameShipping").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a First Name for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#firstNameShipping").css("border-color", "silver");}
 
   if (($('#lastNameShipping').val()).length < 1) {
+    $("#lastNameShipping").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a Last Name for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#lastNameShipping").css("border-color", "silver");}
 
   if (($('#address1Shipping').val()).length < 1) {
+    $("#address1Shipping").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include an Address Line 1 for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#address1Shipping").css("border-color", "silver");}
 
   if (($('#cityShipping').val()).length < 1) {
+    $("#cityShipping").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a City for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#cityShipping").css("border-color", "silver");}
 
   if (($('#stateShipping').val()) == "NULL") {
+    $("#stateShipping").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a State for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#stateShipping").css("border-color", "silver");}
 
   if (($('#zipShipping').val()).length < 5) {
+    $("#zipShipping").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a Zip for Shipping</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#zipShipping").css("border-color", "silver");}
 //End Regular Form Shipping Validation
 
 //Start Regular Form Billing Validation
   if (($('#firstNameBilling').val()).length < 1) {
+    $("#firstNameBilling").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a First Name for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#firstNameBilling").css("border-color", "silver");}
 
   if (($('#lastNameBilling').val()).length < 1) {
+    $("#lastNameBilling").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a Last Name for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#lastNameBilling").css("border-color", "silver");}
 
   if (($('#address1Billing').val()).length < 1) {
+    $("#address1Billing").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include an Address Line 1 for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#address1Billing").css("border-color", "silver");}
 
   if (($('#cityBilling').val()).length < 1) {
+    $("#cityBilling").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a City for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#cityBilling").css("border-color", "silver");}
 
   if (($('#stateBilling').val()) == "NULL") {
+    $("#stateBilling").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a State for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#stateBilling").css("border-color", "silver");}
 
   if (($('#zipBilling').val()).length < 5) {
+    $("#zipBilling").css("border-color", "red");
     errorsPresent = true;
     $("#warning").append('<p>Please Include a Zip for Billing</p>');
     $("#warning").show().delay(5000).fadeOut();
-  }
+  } else {$("#zipBilling").css("border-color", "silver");}
 //End Regular Form Billing Validation
 
   if (errorsPresent === false) { //show success message if no errors
@@ -137,7 +152,7 @@ $('form').on('submit', function(event){
   {
     $("#warning p").remove(); // clear warning messages for re-submit
     $("#success p").remove(); //clear success message for re-submit
-  }, 10000); // Ten second timeout setting, maybe could be less? Or a complicated promise...
+  }, 6000); // six second timeout setting, maybe could be less? Or a complicated promise...
 }
 else { // hidden trump treasure below - src="assets/hidden/fileX"  to 176
   event.preventDefault();
