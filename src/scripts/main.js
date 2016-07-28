@@ -41,6 +41,20 @@ $(function() {
         }, $transition_time +  $time_between_slides);
 
   //<----Image Carousel Finish---->//
+  //<----Click High-Jack---->//
+  $('form').on('submit', function(event){
+    event.preventDefault();
+    $('#form-output').append('<h3>You have been added to our email list!</h3>')
+    $('#form-output').show().delay(5000).fadeOut();
+  });
+
+  $('#emailSignup').on('keyup', function(event){
+    var email = $('#emailSignup').val();
+    if (!emailToCheck(email)){
+      $('#emailSignup').effect('shake');
+       $('#emailSignup').addClass('errorClass');
+    }
+  });
 
   //<----Back and Next Click Listeners---->
   $('#next').on('click',function(){
@@ -52,7 +66,8 @@ $(function() {
       if (slides().length === $i + 1) $i = -1;
         slides().eq($i + 1).fadeIn();
         slides().eq($i + 1).addClass('active');
-});
+  });
+
   $('#back').on('click',function(){
     clearInterval(slides)
     var $i = $carousel.find($slide + '.active').index();
@@ -62,10 +77,11 @@ $(function() {
       if (slides().length === $i - 1) $i = +1;
         slides().eq($i - 1).fadeIn();
         slides().eq($i - 1).addClass('active');
-});
-$('#button').on('click',function(){
-  $('#shoppin').show();
-});
+  });
+
+  $('#button').on('click',function(){
+    $('#shoppin').show();
+  });
 });
 //Generte 3 random products for homepage//
   function createProductElement(productObjArr){
@@ -99,4 +115,13 @@ function randomStar() {
     starNumber--;
   }
     return fullStarBar.toString().replace(/,/g, '');
+}
+//email validater
+function emailVal(emailToCheck) {
+  emailNoWS = emailToCheck.trim();
+  var bool = true;
+  if (emailNoWS[0] === '@' ||  emailNoWS.indexOf('@') + 1 === emailNoWS.indexOf('.') || emailNoWS.indexOf('@') === -1 ){
+    bool = false;
   }
+  return bool;
+}
