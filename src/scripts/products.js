@@ -22,6 +22,7 @@ $(function() {
   $('#button').on('click',function(){
     $('#shoppin').show();
   });
+
   //adds all products back to page on click
   $('#clear-selection').on('click', function() {
     fullProductList(productObj);
@@ -38,6 +39,7 @@ $(function() {
         return key === index.size;
       });
       createProductElement(sortedSize);
+      checkOffset();
     });
   });
 
@@ -57,8 +59,15 @@ $(function() {
         }
       });
       createProductElement(sortedPrice);
+      checkOffset();
     });
   });
+
+  //sidebar must not go into footer
+  $(document).scroll(function() {
+    checkOffset();
+  });
+
 
   // $('#product-display .row > div').on('hover', function(){
   //   console.log('Hover');
@@ -119,5 +128,15 @@ function randomStar() {
 function createShoppingList(productObjArr){
   productObjArr.forEach(function(value){
   $('#shoppingList').append('<li class="bg-info products-cart"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong></div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></li>');
-});
+  });
+}
+  //check on scroll to see if floating div is going to run into footer, if it is then set position absolute, if page is pulled back up then set fixed.
+function checkOffset() {
+  if($('#sidebar').offset().top + $('#sidebar').height() >= $('#footer').offset().top - 10){
+    $('#sidebar').css('position', 'absolute');
+  }
+
+  if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top){
+    $('#sidebar').css('position', 'fixed'); // restore when you scroll up
+  }
 }
