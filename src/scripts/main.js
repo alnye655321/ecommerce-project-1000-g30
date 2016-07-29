@@ -82,6 +82,9 @@ $(function() {
   $('#button').on('click',function() {
     $('#shoppin').show();
   });
+  $('#shoppin').mouseleave(function() {
+  $('#shoppin').css('display','none');
+});
 });
 //Generte 3 random products for homepage//
 function createProductElement(productObjArr) {
