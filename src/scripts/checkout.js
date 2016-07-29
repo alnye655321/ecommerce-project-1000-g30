@@ -2,7 +2,7 @@ $(function() {
   'use strict';
   console.log('sanity check');
   Stripe.setPublishableKey('pk_test_IDkwCdtBuXpEeMz1Nq5JOHe1'); //Stripe.js card validator api
-
+//TO DO: make into for loop
   $('#copy').click(function() { //copy shipping to billing
     $('#firstNameBilling').val($('#firstNameShipping').val());
     $('#lastNameBilling').val($('#lastNameShipping').val());
@@ -19,7 +19,7 @@ $(function() {
 
 //Start Form Validation
 //Start Credit Validation
-
+// TO DO: make into for loop
 $('form').on('submit', function(event) {
   if ($('#lastNameShipping').val() !== 'Trump') {
 
@@ -180,10 +180,11 @@ $('form').on('submit', function(event) {
 //Will take a zip code and autofill state and city data
 //Also a possibility from just address, but that might be a little wonky.....
 //zip code api source: https://smartystreets.com/docs/us-zipcode-api
+//TO DO: Build function to generate promise based on ajax object
 $('#zipShipping').focus(function() { //selecting zip, entering data, then leaving will trigger the zip ajax call. Do nothing focus, but fire ajax on blur
     console.log('in');
   }).blur(function() { // blur means a deselect of zip input, fires ajax call to zip code api
-    console.log('out'); // Install Postman! on google chrome
+    console.log('out'); // Install Postman! on google chrome. API call helper
     var id = $(this).val();
     var ajaxCall = new Promise(function(resolve) { //declare a promise, wait for variables to set before appending state/city form fields
       var state, state_abbreviation, city;
