@@ -6,15 +6,17 @@ $(function() {
     url:'http://galvanize-student-apis.herokuapp.com/gcommerce/products/',
     method: 'GET'
   }).done(function(results) {
-      console.log(results);
-      var arr = [];
-      for (var i = 0; i < 3; i++) {
-        arr.push(results[Math.floor(Math.random() * results.length)]);
-
-      }
-      createProductElement(arr);
-      createShoppingList(arr);
-    });
+        var arr = [];
+        for (var i = 0; i < 3; i++) {
+          arr.push(results[Math.floor(Math.random() * results.length)]);
+        }
+        var basketPrice = 0;
+        arr.forEach(function(object) {
+          basketPrice += parseFloat(object.price.replace('$', ''));
+        });
+        createShoppingList(arr, basketPrice);
+        createProductElement(arr);
+      });
   //<----Image Carousel Start---->//
   //Set carousel variables and transition time
   var $carousel = $('.carousel');
