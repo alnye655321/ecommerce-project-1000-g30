@@ -83,8 +83,8 @@ $(function() {
     $('#shoppin').show();
   });
   $('#shoppin').mouseleave(function() {
-  $('#shoppin').css('display','none');
-});
+    $('#shoppin').css('display','none');
+  });
 });
 //Generte 3 random products for homepage//
 function createProductElement(productObjArr) {
@@ -96,9 +96,10 @@ function createProductElement(productObjArr) {
     $divs.slice(i, i + 4).wrapAll('<div class="row"></div>');
   }
 }
-function createShoppingList(productObjArr) {
+function createShoppingList(productObjArr, totalPrice) {
+  $('#shoppingList').append('<h3><strong>Total Price: $' + totalPrice.toFixed(2) + '</strong></h3>');
   productObjArr.forEach(function(value) {
-    $('#shoppingList').append('<li class="bg-info products-cart"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong></div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></li>');
+    $('#shoppingList').append('<li class="bg-info products-cart"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:' + randomStar() + '</strong></div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></li>');
   });
 }
 function randomStar() {

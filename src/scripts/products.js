@@ -12,9 +12,12 @@ $(function() {
     var arr = [];
     for (var i = 0; i < 3; i++) {
       arr.push(results[Math.floor(Math.random() * results.length)]);
-      console.log(arr);
     }
-      createShoppingList(arr);
+    var basketPrice = 0;
+    arr.forEach(function(object) {
+      basketPrice += parseFloat(object.price.replace('$', ''));
+    });
+    createShoppingList(arr, basketPrice);
   });
 
   //populate products
@@ -48,7 +51,7 @@ $(function() {
     event.preventDefault();
     var key = parseFloat($(this).attr('value'));
     clearOutputDiv();
-    productObj.then(function(products){
+    productObj.then(function(products) {
       var sortedPrice = products.filter(function(index) {
         var noDollarSign = index.price.replace('$', '');
         if (key === 80) {
@@ -68,13 +71,9 @@ $(function() {
     checkOffset();
   });
 
-
-  // $('#product-display .row > div').on('hover', function(){
-  //   console.log('Hover');
-  //   //$('#products .purchase').attr('display', 'block');
-  // });
-
-
+  $('#shoppin').mouseleave(function() {
+    $('#shoppin').css('display','none');
+  });
 });
 
 //get Ajax Object as a promise
@@ -84,13 +83,14 @@ function ajaxCall(url) {
 
 //create a div element on page per object in array
 function createProductElement(productObjArr) {
-  productObjArr.forEach(function(value){
+  productObjArr.forEach(function(value) {
     $('#product-display').append('<div class="products float-left bg-info"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong> ' + randomStar() + '</div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></div>');
   });
+
   //wrap every increment of four product elements in a row Div
   var $divs = $('#product-display > div');
-  for(var i = 0; i < $divs.length; i += 4) {
-  $divs.slice(i, i + 4).wrapAll("<div class='row relative'></div>");
+  for (var i = 0; i < $divs.length; i += 4) {
+    $divs.slice(i, i + 4).wrapAll('<div class="row relative"></div>');
   }
 }
 
@@ -123,20 +123,22 @@ function randomStar() {
     }
     starNumber--;
   }
-    return fullStarBar.toString().replace(/,/g, '');
+  return fullStarBar.toString().replace(/,/g, '');
 }
-function createShoppingList(productObjArr) {
-  productObjArr.forEach(function(value){
-  $('#shoppingList').append('<li class="bg-info products-cart"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:</strong></div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></li>');
+
+function createShoppingList(productObjArr, totalPrice) {
+  $('#shoppingList').append('<h3><strong>Total Price: $' + totalPrice.toFixed(2) + '</strong></h3>');
+  productObjArr.forEach(function(value) {
+    $('#shoppingList').append('<li class="bg-info products-cart"><img src="assets/' + value.id + '.png" alt="foobar"><div><strong>Rating:' + randomStar() + '</strong></div><p class=""> <strong>Description:</strong> ' + value.description + '</p><p class="text-info child"> <strong>Price:</strong> ' + value.price + '</p><div class="purchase bg-prime text-center" style=" display: none"><h3>Purchase</h3></div></li>');
   });
 }
-  //check on scroll to see if floating div is going to run into footer, if it is then set position absolute, if page is pulled back up then set fixed.
+//check on scroll to see if floating div is going to run into footer, if it is then set position absolute, if page is pulled back up then set fixed.
 function checkOffset() {
-  if($('#sidebar').offset().top + $('#sidebar').height() >= $('#footer').offset().top - 10){
+  if ($('#sidebar').offset().top + $('#sidebar').height() >= $('#footer').offset().top - 10) {
     $('#sidebar').css('position', 'absolute');
   }
 
-  if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top) {
+  if ($(document).scrollTop() + window.innerHeight < $('#footer').offset().top) {
     $('#sidebar').css('position', 'fixed'); // restore when you scroll up
   }
 }
