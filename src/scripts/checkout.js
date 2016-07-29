@@ -1,7 +1,7 @@
 $(function() {
   'use strict';
   console.log('sanity check');
-  Stripe.setPublishableKey('pk_test_IDkwCdtBuXpEeMz1Nq5JOHe1');
+  Stripe.setPublishableKey('pk_test_IDkwCdtBuXpEeMz1Nq5JOHe1'); //Stripe.js card validator api
 
   $( "#copy" ).click(function() { //copy shipping to billing
     $('#firstNameBilling').val($('#firstNameShipping').val());
@@ -147,12 +147,12 @@ $('form').on('submit', function(event){
   }
 
 
-  setTimeout( //wait 10 seconds for success/error message generation, then clear out messages for new submit
+  setTimeout( //wait 5 seconds for success/error message generation, then clear out messages for new submit
   function()
   {
     $("#warning p").remove(); // clear warning messages for re-submit
     $("#success p").remove(); //clear success message for re-submit
-  }, 6000); // six second timeout setting, maybe could be less? Or a complicated promise...
+  }, 5000); // five second timeout setting
 }
 else { // hidden trump treasure below - src="assets/hidden/fileX"  to 176
   event.preventDefault();
@@ -171,7 +171,7 @@ else { // hidden trump treasure below - src="assets/hidden/fileX"  to 176
 //Will take a zip code and autofill state and city data
 //Also a possibility from just address, but that might be a little wonky.....
 //zip code api source: https://smartystreets.com/docs/us-zipcode-api
-$("#zipShipping").focus(function() { //selecting zip, entering data, then leaving will trigger the zip ajax call. Do nothing focus, but fire ajax on blur. Maybe we don't need focus?? I was too scared to change
+$("#zipShipping").focus(function() { //selecting zip, entering data, then leaving will trigger the zip ajax call. Do nothing focus, but fire ajax on blur
     console.log('in');
 }).blur(function() { // blur means a deselect of zip input, fires ajax call to zip code api
     console.log('out'); // Install Postman! on google chrome
@@ -210,17 +210,12 @@ $("#zipShipping").focus(function() { //selecting zip, entering data, then leavin
     if (i >= max) {
         return;
     }
-
     // Call the function
     func(i);
-
     i++;
-
     // "loop"
     setTimeout(function() {
         loopTimeout(i, max, interval, func);
     }, interval);
 }
-
-
 //End Loop Timeout Function
