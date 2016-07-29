@@ -1,13 +1,20 @@
-html {
+nav{
+  background-color: crimson;
+}
+
+body{
   background-color: #14C6FF;
 }
+
 .logo {
   color: #000000;
   font-size: 50px;
 }
+
 div.contain {
   margin-top: 20px;
 }
+
 .carousel {
   margin: 0px 0;
   width: 100%;
@@ -18,42 +25,45 @@ div.contain {
   margin: auto;
   background-color: #14C6FF;
 }
+
 .carousel li {
   display: none;
   position: absolute;
   top: 0;
   left: 0;
 }
+
 .image-responsive {
   width: 100%;
 }
-.container-fluid {
-  background-color: #14C6FF;
-}
-.btn.btn-info.btn-lg {
-  margin-left: -3px;
-}
+
 .relative {
   position: relative;
 }
+
 .fa{
- color: #e67e22 ;
+ color: #e67e22;
 }
+
 #next {
   float: right;
   position: absolute; left: 95%; top: 50%;
 }
+
 #back {
   float: left;
   position: absolute; right: 95%; top: 50%;
 }
+
 h2 {
   text-align: center;
 }
+
 .products img {
     max-width: 100%;
     border: 1px solid black;
 }
+
 .products {
   width: 20%;
   float: left;
@@ -61,6 +71,7 @@ h2 {
   margin: 6.2%;
   border: solid 1px gray;
 }
+
 .modal {
     /* some styles to position the modal at the center of the page */
     position: fixed;
@@ -77,19 +88,23 @@ h2 {
     z-index: 10; /* keep on top of other elements on the page */
     outline: 9999px solid rgba(0,0,0,0.5);
 }
+
 #button {
   float: right;
 }
+
 .products-cart {
   display: block;
   padding: 10px;
   margin: 6.2%;
   border: solid 1px gray;
 }
+
 .products-cart img {
     max-width: 50%;
     border: 1px solid black;
 }
+
 .fullImage {
     width: 25%;
     margin-bottom: 10px;
@@ -97,6 +112,7 @@ h2 {
     float: left;
     margin-left: 25%;
 }
+
 .purchases {
   background-color: silver;
 }
@@ -104,6 +120,7 @@ h2 {
 .purchases p {
   font-size: 1.5em;
 }
+
 
 /*colors total amount*/
 .purchases div div:nth-child(4) p {

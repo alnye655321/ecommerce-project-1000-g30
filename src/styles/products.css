@@ -5,9 +5,11 @@ max-width: none;
 max-height: none;
 }
 
+#sort-bar{
+  height: 620px;
+}
 #sidebar{
-  overflow: hidden;
-  visibility:
+  position: fixed;
 }
 
 /*===========================================*/
